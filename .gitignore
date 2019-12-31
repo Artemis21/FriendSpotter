@@ -1,3 +1,10 @@
+# Discord token
+TOKEN
+
+# Saved data
+data/
+!data/no_delete
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
