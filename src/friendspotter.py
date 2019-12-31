@@ -4,7 +4,7 @@ from bot import FriendSpotter
 import sys
 
 
-with open('TOKEN') as f:
+with open('config/TOKEN') as f:
     key = f.read().strip()
 
 if platform.dist()[0] == 'debian':

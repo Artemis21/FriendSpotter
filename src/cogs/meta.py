@@ -3,7 +3,6 @@ import discord
 import os
 from utils.colours import colours
 from utils.paginator import FieldPaginator as Paginator
-from utils import checks
 import json
 
 

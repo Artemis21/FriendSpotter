@@ -3,7 +3,6 @@ import discord
 from utils import errors
 import traceback as tb
 import asyncio
-from utils import checks
 
 
 class FriendSpotter(commands.Bot):
@@ -24,14 +23,14 @@ class FriendSpotter(commands.Bot):
             name='everything you say.',
             type=discord.ActivityType.listening
         )
-        acts = ((act1, 8), (act2, 2))
+        acts = ((act1, 6), (act2, 6))
         n = 0
         while True:
             act1.name = f'{self.command_prefix}help.'
-            await self.change_presence(activity=acts[n[0]])
+            await self.change_presence(activity=acts[n][0])
             n += 1
             n %= len(acts)
-            await asyncio.sleep(acts[n[1]])
+            await asyncio.sleep(acts[n][1])
 
     async def on_command_error(self, ctx, error):
         if self.test:
