@@ -3,7 +3,7 @@ TOKEN
 
 # Saved data
 src/data/
-!src/data/no_delete
+!no_delete
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
