@@ -1,9 +1,11 @@
 # Discord token
 TOKEN
 
+# Folders with non-uploaded files
+!no_delete
+
 # Saved data
 src/data/
-!no_delete
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
