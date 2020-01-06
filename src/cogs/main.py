@@ -34,7 +34,7 @@ class Main(commands.Cog):
     @commands.command(brief='Get a graph!')
     async def graph(self, ctx):
         points = analysis.analyse(ctx.guild)
-        graph = drawing.Graph(points)
+        graph = drawing.Drawing(points)
         f = io.BytesIO()
         graph.image.save(f, format='PNG')
         f.seek(0)
