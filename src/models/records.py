@@ -41,20 +41,21 @@ class Records:
         try:
             with open('data/records.json') as f:
                 data = json.load(f)
-        except FileNotFoundError:
+        except (FileNotFoundError, json.JSONDecodeError):
             data = {}
         records = data.get('records', [])
         cls.records = []
         for record in records:
             cls.records.append(Record.load(record, bot))
         cls.testing = bot.test
+        cls.start = min([i.time for i in cls.records] or [datetime.now()])
 
     @classmethod
     def save(cls):
         records = [i.dump() for i in cls.records]
         data = {'records': records}
         with open('data/records.json', 'w') as f:
-            if cls.bot.test:
+            if cls.testing:
                 json.dump(data, f, indent=4)
             else:
                 json.dump(data, f, separators=(',', ':'))
@@ -74,8 +75,6 @@ class Records:
 
     @classmethod
     def log(cls, message):
-        if message.author.bot:
-            return
         if not message.guild:
             return
         cls.records.append(Record.new(message))

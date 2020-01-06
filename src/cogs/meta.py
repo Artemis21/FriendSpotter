@@ -13,8 +13,8 @@ OTHER = (
     '[this whitepaper](http://www.jibble.org/piespy/). Enjoy!'
 )
 INVITE = (
-    'https://discordapp.com/api/oauth2/authorize?client_id={}&permissions=8'
-    '&scope=bot'
+    'https://discordapp.com/api/oauth2/authorize?client_id={}&'
+    'permissions=117760&scope=bot'
 )
 SOURCE = 'https://github.com/Artemis21/FriendSpotter/tree/master'
 
