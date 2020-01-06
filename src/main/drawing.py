@@ -32,7 +32,7 @@ class Graph:
                     xdist = xa - xb
                     ydist = ya - yb
                     if xdist <= 50:
-                        
+                        pass
 
 
 class Drawing:
