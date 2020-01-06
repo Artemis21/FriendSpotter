@@ -196,11 +196,11 @@ class Meta(commands.Cog):
         description=(
             'Set the command prefix for this server. The bot may then be used '
             'with that prefix only.'
-        )
+        ),
+        hidden=True,
     )
+    @commands.is_owner()
     async def prefix(self, ctx, prefix):
-        if not checks.admin(ctx.author):
-            return
         Config.set_prefix(prefix)
         await ctx.send(f'`{prefix}` is now the prefix.')
         Config.save()
