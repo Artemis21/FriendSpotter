@@ -91,6 +91,7 @@ class Drawing:
         self.image = Image.new('RGB', (width, height), (0, 0, 0, 0))
         self.setup()
         for _ in range(loops):
+            print(_)
             self.graph.update()
         self.draw()
 
