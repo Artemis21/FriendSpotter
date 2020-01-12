@@ -35,13 +35,9 @@ class Main(commands.Cog):
     async def graph(self, ctx):
         points = analysis.analyse(ctx.guild)
         graph = drawing.Drawing(points)
-        for n in range(101):
-            graph.graph.update()
-            if not n % 50:
-                graph.draw()
-                f = io.BytesIO()
-                graph.image.save(f, format='PNG')
-                f.seek(0)
-                file = discord.File(f, 'network.png')
-                await ctx.send(file=file)
+        f = io.BytesIO()
+        graph.image.save(f, format='PNG')
+        f.seek(0)
+        file = discord.File(f, 'network.png')
+        await ctx.send(file=file)
     

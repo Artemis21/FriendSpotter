@@ -47,16 +47,12 @@ class Graph:
             dyp, dyq = -b, b
         else:
             dyp, dyq = b, -b
-        print(force)
-        print(dxp, dyp)
-        print(dxq, dyq)
         new[node_p][0] += dxp
         new[node_p][1] += dyp
         new[node_q][0] += dxq
         new[node_q][1] += dyq
 
     def update(self):
-        print('\n')
         k = 10
         new = dict(self.nodes)
         # repulsive force
@@ -67,7 +63,6 @@ class Graph:
                     if dist > 500:
                         continue
                     force = k ** 4 / -dist
-                    print('===r===')
                     self.move(node, other, force, new)
         # attractive force
         maxval = max(self.edges.values())
@@ -76,8 +71,6 @@ class Graph:
             node_a, node_b = edge
             dist = self.distance(node_a, node_b)
             force = (val / maxval) * (dist ** 2 / k ** 3)
-            print('===a===')
-            print(val, maxval, dist)
             self.move(node_a, node_b, force, new)
         self.nodes = new
 
@@ -91,9 +84,9 @@ class Drawing:
         self.font = ImageFont.truetype('config/font.ttf', 30)
         self.image = Image.new('RGB', (width, height), (0, 0, 0, 0))
         self.setup()
-        #for _ in range(loops):
-        #    self.graph.update()
-        #self.draw()
+        for _ in range(loops):
+            self.graph.update()
+        self.draw()
 
     def get_point(self):
         qw = self.width // 4
