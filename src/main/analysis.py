@@ -74,6 +74,6 @@ def analyse(guild=None, start=None, end=None):
     print('mentions analysed')
     # analyse_close(records, points)
     print('temporal proximity analysed')
-    analyse_convos(records, points)
+    # analyse_convos(records, points)
     print('temporal density analysed')
     return points
