@@ -72,7 +72,7 @@ def analyse(guild=None, start=None, end=None):
     print('records got')
     analyse_mentions(records, points)
     print('mentions analysed')
-    analyse_close(records, points)
+    # analyse_close(records, points)
     print('temporal proximity analysed')
     analyse_convos(records, points)
     print('temporal density analysed')
