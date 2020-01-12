@@ -69,7 +69,11 @@ def analyse(guild=None, start=None, end=None):
     points = AllPoints.new(
         guild, (start or Records.start), (end or datetime.now())
     )
+    print('records got')
     analyse_mentions(records, points)
+    print('mentions analysed')
     analyse_close(records, points)
+    print('temporal proximity analysed')
     analyse_convos(records, points)
+    print('temporal density analysed')
     return points
