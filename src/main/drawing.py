@@ -35,7 +35,7 @@ class Graph:
         ydist = yp - yq
         c = force / 10
         a2b2 = c ** 2
-        unit = a2b2 / (xdist + ydist)
+        unit = a2b2 / (xdist+ydist or 1)
         sign = ((force > 0) * 2) - 1
         a = (abs(unit * xdist) ** 0.5) * sign
         b = (abs(unit * ydist) ** 0.5) * sign
@@ -68,7 +68,7 @@ class Graph:
                     dist = self.distance(node, other)
                     if dist > 250:
                         continue
-                    force = k ** 4 / -dist
+                    force = k ** 4 / (-dist or -1)
                     self.move(node, other, force, new)
         # attractive force
         maxval = max(self.edges.values())
