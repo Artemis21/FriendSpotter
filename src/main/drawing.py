@@ -55,7 +55,7 @@ class Graph:
             for c in (0, 1):
                 if new[node][c] > 950:
                     new[node][c] = 950
-                elif new[node[c] < 50:
+                elif new[node][c] < 50:
                     new[node][c] = 50
 
     def update(self):
