@@ -10,6 +10,9 @@ class Record:
         guild = bot.get_guild(data['guild'])
         author = bot.get_user(data['author'])
         mentions = [bot.get_user(i) for i in data['mentions']]
+        mentions = [i for i in mentions if i]
+        if (not guild) or (not author):
+            return None
         return cls(time, guild, author, mentions)
 
     @classmethod
@@ -46,7 +49,9 @@ class Records:
         records = data.get('records', [])
         cls.records = []
         for record in records:
-            cls.records.append(Record.load(record, bot))
+            r = Record.load(record, bot)
+            if r:
+                cls.records.append(r)
         cls.testing = bot.test
         cls.start = min([i.time for i in cls.records] or [datetime.now()])
 
