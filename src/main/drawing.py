@@ -51,6 +51,12 @@ class Graph:
         new[node_p][1] += dyp
         new[node_q][0] += dxq
         new[node_q][1] += dyq
+        for node in (node_p, node_q):
+            for c in (0, 1):
+                if new[node][c] > 950:
+                    new[node][c] = 950
+                elif new[node[c] < 50:
+                    new[node][c] = 50
 
     def update(self):
         k = 10
@@ -60,7 +66,7 @@ class Graph:
             for other in self.nodes:
                 if node != other:
                     dist = self.distance(node, other)
-                    if dist > 500:
+                    if dist > 250:
                         continue
                     force = k ** 4 / -dist
                     self.move(node, other, force, new)
@@ -103,7 +109,6 @@ class Drawing:
             self.graph.bond(a, b, value)
 
     def draw(self):
-        self.image = Image.new('RGBA', (self.width, self.height), (0, 0, 0, 0))#
         im = ImageDraw.Draw(self.image)
         # find points -> width scale
         mult = 5 / max(map(math.log, self.graph.edges.values()))
